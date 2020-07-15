@@ -30,11 +30,18 @@
   <!-- a rest service which uses binding to/from pojos -->
   <bean id="restRoutes" class="com.redhat.examples.rest.RestRouteBuilder"/>
 
+  <!-- a rest service which uses binding to/from pojos -->
+  <bean id="ionRestRoutes" class="com.redhat.examples.rest.IonRestRouteBuilder"/>
+
   <!-- a bean for user services -->
   <bean id="providerService" class="com.redhat.examples.rest.ProviderService"/>
 
+    <!-- a bean for ion services -->
+  <bean id="userService" class="com.redhat.examples.rest.UserService"/>
+
   <camelContext id="providerCamelContext" xmlns="http://camel.apache.org/schema/spring" trace="true">
-  <routeBuilder ref="restRoutes"/>
+    <routeBuilder ref="restRoutes"/>
+    <routeBuilder ref="ionRestRoutes"/>
 </camelContext>
 
 </beans>
